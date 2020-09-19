@@ -56,18 +56,17 @@ type
       destructor Destroy; override;
    end;
 
-   {$M+}
    TMyRecord = packed record
    private
       FField: Integer;
    public
       function GetMyIndexedProperty(const Index: Integer): Integer;
       function GetMyProperty: Integer;
+      class function MyClassMethod: Integer; static;
       function MyMethod: Integer;
       procedure SetMyIndexedProperty(const Index: Integer; const Value: Integer);
       procedure SetMyProperty(const Value: Integer);
    end;
-   {$M-}
 
 implementation
 
@@ -150,6 +149,12 @@ begin
 end;
 
 function TMyRecord.GetMyProperty: Integer;
+begin
+   Randomize;
+   Result := Random(100);
+end;
+
+class function TMyRecord.MyClassMethod: Integer;
 begin
    Randomize;
    Result := Random(100);

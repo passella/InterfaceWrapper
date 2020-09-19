@@ -89,6 +89,8 @@ type
       procedure SetPrivateField(const Value: Integer);
       [MethodWrapper('function MyMethod: Integer')]
       function MyIntFMethod: Integer;
+      [ClassMethodWrapper('class function MyClassMethod: Integer')]
+      function MyClassMethod: Integer;
 
       property MyIndexedProperty[const Index: Integer]: Integer read
           GetMyIndexedProperty write SetMyIndexedProperty;
@@ -143,6 +145,7 @@ begin
    intF.PrivateField := 100;
    ShowMessageFmt('intF.PrivateField: %d', [intF.PrivateField]);
    ShowMessageFmt('intF.MyIntFMethod: %d', [intF.MyIntFMethod]);
+   ShowMessageFmt('intF.MyClassMethod: %d', [intF.MyClassMethod]);
 end;
 
 
