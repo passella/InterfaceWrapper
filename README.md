@@ -66,6 +66,7 @@ Classes responsible for encapsulating any Class / Interface or Record in a new i
        public
           function GetMyIndexedProperty(const Index: Integer): Integer;
           function GetMyProperty: Integer;
+          class function MyClassMethod: Integer; static;
           function MyMethod: Integer;
           procedure SetMyIndexedProperty(const Index: Integer; const Value: Integer);
           procedure SetMyProperty(const Value: Integer);
@@ -136,6 +137,8 @@ Classes responsible for encapsulating any Class / Interface or Record in a new i
           procedure SetPrivateField(const Value: Integer);
           [MethodWrapper('function MyMethod: Integer')]
           function MyIntFMethod: Integer;
+          [ClassMethodWrapper('class function MyClassMethod: Integer')]
+          function MyClassMethod: Integer;
     
           property MyIndexedProperty[const Index: Integer]: Integer read
               GetMyIndexedProperty write SetMyIndexedProperty;
