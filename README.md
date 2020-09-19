@@ -149,6 +149,11 @@ Classes responsible for encapsulating any Class / Interface or Record in a new i
 
 **Use**
 
+    procedure DoMethod(const intF: IMyInterface1); overload;
+    procedure DoMethod(const intF: IMyInterface2); overload;
+    procedure DoMethod(const intF: IMyInterface3); overload;
+    procedure DoMethod(const intF: IMyInterface4); overload;
+
        var rec: TMyRecord;
        DoMethod(TInterfaceRecordWrapper<TMyRecord>.Wrap<IMyInterface4>(@rec));
        DoMethod(TInterfaceRecordWrapper<TMyRecord>.Wrap<IMyInterface4>());
